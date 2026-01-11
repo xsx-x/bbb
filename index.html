@@ -184,7 +184,7 @@
                 המקום להתחיל לכבד הורים
             </span>
             <h1 class="text-6xl md:text-8xl font-extrabold mb-8 leading-tight">
-                פורום <span class="gold-gradient-text inline-block hover:scale-105 transition-transform duration-500">כיבוד הורים</span>
+                פורום <span class="gold-gradient-text inline-block hover:scale-105 transition-transform duration-500">מעריכים</span>
             </h1>
             <p class="text-2xl md:text-3xl font-light mb-12 opacity-90 max-w-3xl mx-auto float-animation">
                 בנשיאות הרה"ג <span class="font-bold border-b-2 border-[#c5a059] pb-1">עמרם פריד</span> שליט"א
@@ -228,11 +228,12 @@
             <div data-aos="fade-left" data-aos-duration="1000">
                 <h2 class="text-4xl lg:text-5xl font-bold mb-8 leading-snug">הצטרפו למערכת <br><span class="text-[#c5a059]">התפוצה הדיגיטלית</span></h2>
                 <p class="text-lg text-gray-600 mb-8 leading-relaxed">קבלו תוכן איכותי שבועי הכולל הלכות אקטואליות, מאמרי הגות מאת הרב עמוס חדד שליט"א וסיפורים מחזקים.</p>
-                <form class="space-y-6">
+                <!-- שמירה על מבנה ה-form המקורי -->
+                <form onsubmit="handleForm(event, 'email-top')" class="space-y-6">
                     <div class="relative group">
-                        <input type="email" placeholder="הכנס כתובת מייל" class="animated-input w-full bg-white/50 py-5 px-4 outline-none text-lg rounded-t-lg">
+                        <input type="email" id="email-top" placeholder="הכנס כתובת מייל" class="animated-input w-full bg-white/50 py-5 px-4 outline-none text-lg rounded-t-lg" required>
                     </div>
-                    <button class="cta-button bg-[#0f172a] text-white px-10 py-4 rounded-xl font-bold w-full md:w-auto mt-4 text-lg hover:bg-black">אישור והצטרפות</button>
+                    <button type="submit" class="cta-button bg-[#0f172a] text-white px-10 py-4 rounded-xl font-bold w-full md:w-auto mt-4 text-lg hover:bg-black">אישור והצטרפות</button>
                 </form>
             </div>
             <div class="bg-[#0f172a] p-12 rounded-[40px] text-white shadow-2xl relative overflow-hidden transform hover:scale-[1.01] transition-transform duration-500" data-aos="fade-right" data-aos-duration="1000">
@@ -293,10 +294,10 @@
             <div class="relative z-10">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">מוכנים להתחיל?</h2>
                 <p class="text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">הצטרפו לאלפי לומדים ומשתמשים בבית ההוראה, והתחילו לקיים את מצוות כיבוד הורים כהלכתה.</p>
-                <div class="max-w-md mx-auto space-y-4">
-                    <input type="email" placeholder="כתובת המייל שלך" class="animated-input w-full bg-gray-50 border border-gray-100 py-5 px-6 rounded-2xl outline-none text-lg">
-                    <button class="cta-button bg-[#c5a059] text-white px-12 py-5 rounded-2xl font-bold w-full text-xl shadow-lg hover:shadow-2xl transition-all mt-4">הצטרפות עכשיו</button>
-                </div>
+                <form onsubmit="handleForm(event, 'email-bottom')" class="max-w-md mx-auto space-y-4">
+                    <input type="email" id="email-bottom" placeholder="כתובת המייל שלך" class="animated-input w-full bg-gray-50 border border-gray-100 py-5 px-6 rounded-2xl outline-none text-lg" required>
+                    <button type="submit" class="cta-button bg-[#c5a059] text-white px-12 py-5 rounded-2xl font-bold w-full text-xl shadow-lg hover:shadow-2xl transition-all mt-4">הצטרפות עכשיו</button>
+                </form>
             </div>
         </section>
 
@@ -330,6 +331,17 @@
             offset: 50, // Trigger earlier
             mirror: false
         });
+
+        // פונקציה לניהול השליחה לטופס
+        function handleForm(event, inputId) {
+            event.preventDefault(); // מונע מהדף להתרענן
+            const emailValue = document.getElementById(inputId).value;
+            // קישור הטופס הציבורי שלך
+            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfB2Nf_8R_U5A7i4R_U9J6ORs6FgQylyM/viewform";
+            
+            // פתיחת הטופס בחלון חדש
+            window.open(formUrl, '_blank');
+        }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
