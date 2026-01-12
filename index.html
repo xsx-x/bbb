@@ -205,24 +205,23 @@
 
     <div>
         <label class="block text-right text-xs font-bold text-slate-500 mb-1.5 mr-1 tracking-wide uppercase">שם מלא</label>
-        <input type="text" name="name" placeholder="הקלידו שם..." required class="custom-form-input">
+        <input type="text" name="name" required class="custom-form-input">
     </div>
 
     <div>
         <label class="block text-right text-xs font-bold text-slate-500 mb-1.5 mr-1 tracking-wide uppercase">כתובת אימייל</label>
-        <input type="email" id="email-field" name="email" placeholder="example@mail.com" required class="custom-form-input">
+        <input type="email" name="email" id="email-field" required class="custom-form-input">
         
         <div class="flex flex-wrap gap-2 mt-2 justify-end">
             <button type="button" onclick="addSuffix('@gmail.com')" class="email-suffix-btn">@gmail.com</button>
             <button type="button" onclick="addSuffix('@outlook.com')" class="email-suffix-btn">@outlook.com</button>
-            <button type="button" onclick="addSuffix('@walla.co.il')" class="email-suffix-btn">@walla</button>
         </div>
     </div>
 
     <button type="submit" class="cta-button w-full bg-[#c5a059] text-white py-4 rounded-xl font-bold text-lg shadow-md mt-4 hover:bg-[#b38f4d]">
         אישור והצטרפות
     </button>
-</form>
+</form> 
             </div>
 
             <div class="mt-8 flex items-center justify-center gap-3 text-gray-400 text-xs">
